@@ -1,0 +1,487 @@
+<% layout("/layouts/boilerplate") -%>
+<body>
+  <div class="row">
+    <div class="col-10 offset-1 mt-4">
+      <h2><%= listing.title %></h2>
+    </div>
+    <div class="card d-flex col-10 mx-auto show-card listing-card">
+      <img
+        src="<%= listing.image.url %>"
+        class="card-img-top show-img listing-img"
+        alt="listing_img"
+      />
+      <div class="d-flex">
+        <div class="card-body col-8">
+          <!-- <p class="card-text text-end">
+            Owned by <i> <%= listing.owner.username %></i>
+          </p> -->
+          <div class="mt-4">
+            <p class="fs-4 mb-0 mt-0 fw-semibold">
+              Entire guest house in&nbsp;<%= listing.location %>,&nbsp;<%=
+              listing.country%>
+            </p>
+            <p class="mt-0 fw-semibold opacity-75">
+              5 guests·2 bedrooms·2 beds·1 bathroom
+            </p>
+          </div>
+          <hr />
+          <div>
+            <div class="d-flex align-items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                aria-hidden="true"
+                role="presentation"
+                focusable="false"
+                style="
+                  display: block;
+                  height: 3.2rem;
+                  width: 3.2rem;
+                  fill: currentcolor;
+                "
+              >
+                <path
+                  d="M16 .7C7.56.7.7 7.56.7 16S7.56 31.3 16 31.3 31.3 24.44 31.3 16 24.44.7 16 .7zm0 28c-4.02 0-7.6-1.88-9.93-4.81a12.43 12.43 0 0 1 6.45-4.4A6.5 6.5 0 0 1 9.5 14a6.5 6.5 0 0 1 13 0 6.51 6.51 0 0 1-3.02 5.5 12.42 12.42 0 0 1 6.45 4.4A12.67 12.67 0 0 1 16 28.7z"
+                ></path>
+              </svg>
+              <div class="ms-3">
+                <p class="mb-0 fw-bold">
+                  Star Captain&nbsp;<%= listing.owner.username %>
+                </p>
+                <p class="mb-0 opacity-75">Orbit Guardians</p>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="d-flex flex-column gap-4">
+            <div class="d-flex align-items-center ms-2">
+              <div><i class="fa-solid fa-key ms-1 fs-4 opacity-50"></i></div>
+              <div class="ms-4 ps-1">
+                <p class="mb-0 fw-bold">Great check-in experience</p>
+                <p class="mb-0 opacity-75">
+                  Recent guests loved the smooth start to this stay.
+                </p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center ms-2">
+              <div><i class="fa-solid ms-1 fa-spa fs-4 opacity-50"></i></div>
+              <div class="ms-4 ps-1">
+                <p class="mb-0 fw-bold">Your very own spa</p>
+                <p class="mb-0 opacity-75">Relax with the sauna and hot tub.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center ms-2">
+              <div>
+                <i class="fa-regular fa-calendar ms-2 fs-4 opacity-50"></i>
+              </div>
+              <div class="ms-4 ps-1">
+                <p class="mb-0 fw-bold">Free cancellation before 26 Nov</p>
+                <p class="mb-0 opacity-75">
+                  Get a full refund if you change your mind.
+                </p>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <p class="card-text fs-6"><%= listing.description %></p>
+          <% if(listing.category) { %>
+          <p class="card-text badge rounded-pill fw-semibold fs-6 bg-primary">
+            <%= listing.category %>
+          </p>
+          <%}%>
+          <!-- <div class="d-flex">
+            <p class="fs-5 fw-bold price-line">-</p>
+            <p
+              class="card-text me-2 fs-5 price-line text-decoration-line-through"
+            >
+              &#8377; <%= parseInt(listing.price - 600).toLocaleString("en-IN")
+              %>
+            </p>
+            <p class="card-text fs-3 fw-bold price">
+              &#8377; <%= listing.price.toLocaleString("en-IN") %>
+            </p>
+          </div> -->
+
+          <p class="card-text fs-5">
+            <i class="fa-solid fa-location-dot fs-5">&nbsp;</i><%=
+            listing.location %>&nbsp;&nbsp;&nbsp;&nbsp;<i
+              class="fa-solid fa-globe fs-5"
+              >&nbsp;</i
+            ><%= listing.country %>
+          </p>
+
+          <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
+          <div class="d-flex justify-content-end gap-5">
+            <div class="edit-btn">
+              <a class="fw-bold" href="/listings/<%= listing._id %>/edit"
+                >Improve Your Space</a
+              >
+            </div>
+            <form
+              method="post"
+              action="/listings/<%= listing._id %>?_method=DELETE"
+            >
+              <div class="">
+                <button class="delete-btn fw-bold">Discard</button>
+              </div>
+            </form>
+          </div>
+          <% } %>
+        </div>
+        <div class="col-4 ms-4 mt-4">
+          <div
+            class="reserve d-flex border rounded-4 shadow justify-content-center"
+          >
+            <div class="">
+              <div class="d-flex mt-4 mb-2">
+                <p class="card-text fs-2 fw-bold price">
+                  &#8377; <%= listing.price.toLocaleString("en-IN") %>
+                </p>
+                <p class="mt-2 ms-1 fw-bold">night</p>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button class="btn text-white fs-5 fw-bold reserve-btn">
+                  Reserve
+                </button>
+              </div>
+              <div class="d-flex justify-content-center mt-2">
+                <p class="fs-6">You won't be charged yet</p>
+              </div>
+              <div
+                class="d-flex align-items-center justify-content-between fw-semibold"
+              >
+                <p class="text-decoration-underline">
+                  &#8377;<%= listing.price.toLocaleString("en-IN") %>&nbsp;x6
+                  nights
+                </p>
+                <p class="">
+                  &#8377; <%= parseInt(listing.price *
+                  6).toLocaleString("en-IN") %>
+                </p>
+              </div>
+              <div
+                class="d-flex align-items-center justify-content-between fw-semibold"
+              >
+                <p class="text-decoration-underline">Cleaning fee</p>
+                <p class="">
+                  &#8377;<%= parseInt(listing.price /
+                  15).toLocaleString("en-IN")%>
+                </p>
+              </div>
+              <div
+                class="d-flex align-items-center justify-content-between fw-semibold"
+              >
+                <p class="text-decoration-underline">CosmicCove service fee</p>
+                <p class="">
+                  &#8377;<%= parseInt(listing.price /
+                  5).toLocaleString("en-IN")%>
+                </p>
+              </div>
+              <hr />
+              <div
+                class="d-flex fs-5 align-items-center justify-content-between fw-bold my-2"
+              >
+                <p class="">Total before taxes</p>
+                <p class="">
+                  &#8377;<%= parseInt(listing.price * 6 + listing.price / 15 +
+                  listing.price / 5).toLocaleString("en-IN")%>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="rare-box border rounded-3 shadow mt-4">
+            <div class="my-3 d-flex mx-3">
+              <div class="d-flex mt-1 me-2">
+                <i class="fa-regular fa-gem fs-1 price"></i>
+              </div>
+              <div class="d-flex align-items-start flex-column">
+                <p class="mb-0 fw-bold">This is a rare find</p>
+                <p
+                  class="mb-0 fs-6 d-inline-block text-truncate"
+                  style="
+                    max-width: 17rem;
+                    font-size: 0.95rem !important;
+                    opacity: 0.7;
+                  "
+                >
+                  <%= listing.owner.username %> place is usually fully booked.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="col-8 offset-2 mb-3">
+    <% if(currUser) { %>
+    <h2 class="heading mb-2 fw-bold">Traveler Reviews</h2>
+    <form
+      action="/listings/<%= listing.id %>/reviews"
+      method="POST"
+      novlaidate
+      class="needs-validation"
+    >
+      <div class="mb-3 mt-3">
+        <label for="rating" class="form-label fs-4 fw-semibold">Rating</label>
+        <fieldset class="starability-heartbeat">
+          <input
+            type="radio"
+            id="no-rate"
+            class="input-no-rate"
+            name="review[rating]"
+            value="1"
+            checked
+            aria-label="No rating."
+          />
+          <input
+            type="radio"
+            id="first-rate1"
+            name="review[rating]"
+            value="1"
+          />
+          <label for="first-rate1" title="Terrible">1 star</label>
+          <input
+            type="radio"
+            id="first-rate2"
+            name="review[rating]"
+            value="2"
+          />
+          <label for="first-rate2" title="Not good">2 stars</label>
+          <input
+            type="radio"
+            id="first-rate3"
+            name="review[rating]"
+            value="3"
+          />
+          <label for="first-rate3" title="Average">3 stars</label>
+          <input
+            type="radio"
+            id="first-rate4"
+            name="review[rating]"
+            value="4"
+          />
+          <label for="first-rate4" title="Very good">4 stars</label>
+          <input
+            type="radio"
+            id="first-rate5"
+            name="review[rating]"
+            value="5"
+          />
+          <label for="first-rate5" title="Amazing">5 stars</label>
+        </fieldset>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="comment" class="form-label fs-5 fw-semibold">Comment</label>
+        <textarea
+          name="review[comment]"
+          id="comment"
+          cols="30"
+          rows="5"
+          class="form-control"
+          placeholder="How Was Your Adventure?"
+          required
+        ></textarea>
+        <div class="invalid-feedback">Please add some comment for review</div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="comment-btn fw-bold">Add Your Experience</button>
+      </div>
+    </form>
+    <hr />
+    <% } %>
+    <h3 class="heading fw-bold">
+      <%=listing.reviews.length%> &nbsp;Traveler Reviews from Across the Cosmos
+    </h3>
+    <div class="row">
+      <% for(review of listing.reviews) { %>
+      <div class="card col-5 ms-3 mb-3">
+        <div class="card-body">
+          <div class="d-flex mb-1 align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+              role="presentation"
+              focusable="false"
+              style="
+                display: block;
+                height: 3rem;
+                width: 3rem;
+                fill: currentcolor;
+              "
+            >
+              <path
+                d="M16 .7C7.56.7.7 7.56.7 16S7.56 31.3 16 31.3 31.3 24.44 31.3 16 24.44.7 16 .7zm0 28c-4.02 0-7.6-1.88-9.93-4.81a12.43 12.43 0 0 1 6.45-4.4A6.5 6.5 0 0 1 9.5 14a6.5 6.5 0 0 1 13 0 6.51 6.51 0 0 1-3.02 5.5 12.42 12.42 0 0 1 6.45 4.4A12.67 12.67 0 0 1 16 28.7z"
+              ></path>
+            </svg>
+            <div class="ms-2">
+              <p class="mb-0 fw-bold"><%= review.author.username %></p>
+              <p class="mb-0 opacity-75">
+                <%= listing.location %>,&nbsp;<%= listing.country%>
+              </p>
+            </div>
+          </div>
+
+          <p
+            class="starability-result card-text mb-2"
+            data-rating="<%= review.rating %>"
+          ></p>
+          <div class="d-flex">
+            <p class="card-text mb-3 text-wrap"><%= review.comment %></p>
+            <% if(currUser && currUser._id.equals(review.author._id)) { %>
+            <form
+              class="mb-2 ms-auto"
+              method="POST"
+              action="/listings/<%= listing.id %>/reviews/<%= review.id %>?_method=DELETE"
+            >
+              <button class="delete-btn fw-semibold px-3 py-2">Delete</button>
+            </form>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <%} %>
+    </div>
+    <div class="">
+      <hr />
+    </div>
+    <div class="mt-3">
+      <h4 class="">What this place offers</h4>
+      <div class="offers">
+        <i class="fa-solid fa-utensils"><span> Kitchen</span></i>
+        <i class="fa-solid fa-car"><span> Parking</span></i>
+        <i class="fa-solid fa-temperature-low"
+          ><span> Air conditioning</span></i
+        >
+        <i class="fa-solid fa-tv"><span> TV</span></i>
+        <i class="fa-solid fa-video"><span> Security cameras</span></i>
+        <i class="fa-solid fa-wifi"><span> Wifi</span></i>
+      </div>
+      <div class="d-flex justify-content-center mt-2">
+        <button
+          id="offers"
+          type="button"
+          class="edit-btn fw-bold py-2 px-3"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Show all amenities
+        </button>
+      </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                What this place offers
+              </h1>
+            </div>
+            <div class="modal-body">
+              <ul>
+                <h5>Scenic views</h5>
+                <li>Lake view</li>
+                <li>Mountain view</li>
+                <li>Pool view</li>
+                <hr />
+              </ul>
+              <ul>
+                <h5>Bathrooms</h5>
+                <li>Cleaning products</li>
+                <li>Shampoo</li>
+                <li>Hot Water</li>
+                <hr />
+              </ul>
+              <ul>
+                <h5>Bedroom and laundry</h5>
+                <li>Essentials</li>
+                <li>Hangers</li>
+                <li>Bed linen</li>
+                <hr />
+              </ul>
+              <ul>
+                <h5>Entertainment</h5>
+                <li>TV with standard cable/satellite</li>
+                <li>Sound system with Bluetooth and aux</li>
+                <li>Pool table</li>
+                <hr />
+              </ul>
+              <ul>
+                <h5>Outdoor</h5>
+                <li>Patio or balcony</li>
+                <li>Garden</li>
+                <li>Hammock</li>
+                <li>Firepit</li>
+                <li>BBQ grill</li>
+                <hr />
+              </ul>
+              <ul>
+                <h5>Kitchen and dining</h5>
+                <li>Dishes and cutlery</li>
+                <li>Barbecue utensils</li>
+                <li>Dining table</li>
+                <li>Freezer</li>
+                <hr />
+              </ul>
+              <ul>
+                <h5>Locations Features</h5>
+                <li>Waterfront</li>
+                <p>Right next to a body of water</p>
+                <li>Lake access</li>
+                <p>Guests can get to a lake using a path or dock</p>
+                <li>Private entrance</li>
+                <p>Separate street or building entrance</p>
+              </ul>
+              <ul>
+                <h6>and many more...</h6>
+              </ul>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button
+                type="button"
+                class="delete-btn fw-bold"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <hr />
+    </div>
+
+    <div class="mt-3" id="services">
+      <h4>Add-on services</h4>
+      <p>
+        After booking this home, a trip designer can arrange any of these add-on
+        services.
+      </p>
+      <div class="offers">
+        <i class="fa-solid fa-plane-departure"
+          ><span> Airport Transfer</span></i
+        >
+        <i class="fa-solid fa-wine-glass"><span> Butler</span></i>
+        <i class="fa-solid fa-cart-flatbed-suitcase"
+          ><span> Pre-stocking</span></i
+        >
+        <i class="fa-solid fa-pump-medical"><span> Cleaning</span></i>
+      </div>
+    </div>
+    <div class="">
+      <hr />
+    </div>
+  </div>
+</body>

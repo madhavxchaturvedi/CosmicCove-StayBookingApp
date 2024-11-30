@@ -1,0 +1,443 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff !important;
+}
+
+.container {
+  flex: 1;
+}
+
+.navbar {
+  height: 5rem;
+  background-color: white;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#responsive-registration {
+  display: none;
+}
+
+.dropdown {
+  margin-left: auto !important;
+}
+
+.dropdown p {
+  display: inline;
+}
+
+.dropdown button {
+  width: auto !important;
+  height: 3rem;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-menu {
+  margin-top: 0.5rem !important;
+  width: 14rem;
+  padding: 0.7rem;
+  transform: translateX(-65%);
+}
+
+.nav-link {
+  color: #222222 !important;
+  font-weight: 500 !important;
+}
+
+.no-border {
+  border: 0 !important;
+  box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+}
+
+.f-info {
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.f-info-socials {
+  width: 100%;
+}
+
+.f-info-socials i {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.f-info-links {
+  width: 100%;
+}
+
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  /* height: 40% !important; */
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text {
+  font-weight: 400 !important;
+}
+
+.listing-link {
+  text-decoration: none;
+}
+
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+/* New page */
+
+.add-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+  font-weight: 400 !important;
+}
+
+/* Edit page */
+
+.edit-btn {
+  /* background-color: #fe424d !important;
+  border: none !important;
+  font-weight: 400 !important; */
+  border-radius: 50px !important;
+  background: linear-gradient(
+    114deg,
+    rgba(156, 132, 206, 1) 37%,
+    rgba(71, 80, 241, 1) 76%
+  );
+  border: none !important;
+  color: white !important;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: box-shadow 0.3s ease;
+}
+
+.edit-btn:hover {
+  box-shadow: 0px 0px 30px rgba(111, 44, 255, 0.8);
+  color: white;
+}
+
+.edit-btn a {
+  text-decoration: none !important;
+  color: white;
+}
+
+.edit-btn a:hover {
+  color: white;
+}
+
+.delete-btn {
+  border-radius: 50px !important;
+  background: linear-gradient(
+    114deg,
+    rgb(233, 104, 104) 37%,
+    rgba(180, 40, 50, 1) 76%
+  );
+  border: none !important;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: box-shadow 0.3s ease;
+}
+
+.delete-btn:hover {
+  box-shadow: 0px 0px 30px rgba(206, 71, 71, 1);
+}
+
+.comment-btn {
+  border-radius: 50px;
+  color: #271f85 !important;
+  background-color: #fff;
+  padding: 8px 40px;
+  cursor: pointer;
+  border: 2px solid #271f85 !important;
+  transition: box-shadow 0.3s ease;
+}
+
+.comment-btn:hover {
+  box-shadow: 0px 0px 25px rgba(111, 44, 255, 0.8);
+}
+
+/* Show Page */
+
+.show-img {
+  object-fit: cover;
+  height: 60vh;
+}
+
+.show-card {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btns {
+  display: flex;
+}
+
+.offers {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 7fr 1fr;
+  gap: 1.5rem;
+}
+
+.offers i {
+  font-size: 1rem;
+}
+
+.offers span {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.025cm;
+}
+
+.price-line {
+  color: #e51b39;
+  opacity: 0.6;
+}
+
+.price {
+  color: #5b4fda !important;
+}
+
+/* ---------------------------------------------------> sign in form */
+
+.signup-form {
+  color: #000;
+  overflow-x: hidden;
+  /* height: 100%; */
+  /* background-image: linear-gradient(to right, #d500f9, #ffd54f); */
+  /* background-repeat: no-repeat; */
+}
+
+input,
+textarea {
+  background-color: #f3e5f5;
+  border-radius: 50px !important;
+  padding: 12px 15px 12px 15px !important;
+  width: 100%;
+  box-sizing: border-box;
+  border: none !important;
+  border: 1px solid #f3e5f5 !important;
+  font-size: 16px !important;
+  color: #000 !important;
+  font-weight: 400;
+}
+
+input:focus,
+textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid #271f85 !important;
+  outline-width: 0;
+  font-weight: 400;
+}
+
+button:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0;
+}
+
+.card {
+  border-radius: 0;
+  border: none !important;
+}
+
+.card1 {
+  width: 50%;
+  padding: 40px 30px 10px 30px;
+}
+
+.card2 {
+  width: 50%;
+  background-image: url("https://img.freepik.com/free-photo/3d-render-outer-space-with-nebula-galaxy_1048-6344.jpg");
+  background-repeat: round;
+  object-fit: cover;
+}
+
+::placeholder {
+  color: #636161 !important;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #636161 !important;
+}
+
+::-ms-input-placeholder {
+  color: #636161 !important;
+}
+
+.form-control-label {
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.msg-info {
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+.btn-color {
+  border-radius: 50px;
+  color: #fff;
+  background-image: url("https://img.freepik.com/free-photo/3d-render-outer-space-with-nebula-galaxy_1048-6344.jpg");
+  padding: 15px;
+  cursor: pointer;
+  border: none !important;
+  margin-top: 40px;
+}
+
+.reserve-btn {
+  border-radius: 50px;
+  color: #fff;
+  background-image: url("https://img.freepik.com/free-photo/3d-render-outer-space-with-nebula-galaxy_1048-6344.jpg");
+  padding: 0.7rem 7.5rem 0.7rem 7.5rem !important;
+  cursor: pointer;
+  border: none !important;
+}
+
+.reserve-btn:hover {
+  color: #fff;
+  background-image: url("https://img.freepik.com/free-photo/3d-render-outer-space-with-nebula-galaxy_1048-6344.jpg");
+  scale: 105%;
+  transition: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.reserve {
+  background-color: white;
+  z-index: 60 !important;
+  position: sticky;
+  top: 200px;
+}
+
+.btn-color:hover {
+  color: #fff;
+  background-image: url("https://img.freepik.com/free-photo/3d-render-outer-space-with-nebula-galaxy_1048-6344.jpg");
+  scale: 105%;
+  transition: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.btn-white {
+  border-radius: 50px;
+  color: #271f85 !important;
+  background-color: #fff;
+  padding: 8px 40px;
+  cursor: pointer;
+  border: 2px solid #271f85 !important;
+}
+
+.heading {
+  color: #4f42db !important;
+  margin-bottom: 60px !important;
+}
+
+.sub-heading {
+  border-radius: 50px;
+  color: #271f85 !important;
+  background-color: #fff;
+  padding: 8px 30px;
+  border: 2px solid #271f85 !important;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #000;
+}
+
+.bottom {
+  width: 100%;
+  margin-top: 50px !important;
+}
+
+.sm-text {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 992px) {
+  .card1 {
+    width: 100%;
+    padding: 40px 30px 10px 30px;
+  }
+
+  .card2 {
+    width: 100%;
+  }
+
+  .right {
+    margin-top: 100px !important;
+    margin-bottom: 100px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px !important;
+  }
+
+  .card2 {
+    padding: 50px;
+  }
+
+  .right {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+  }
+}
+
+.my-alert {
+  z-index: 100;
+}

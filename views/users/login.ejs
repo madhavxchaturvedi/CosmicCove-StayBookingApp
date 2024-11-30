@@ -1,0 +1,107 @@
+<% layout("/layouts/boilerplate") -%>
+
+<!-- <div class="row">
+  <div class="col-6 offset-3 mt-3">
+    <h1>Login</h1>
+    <form method="post" action="/login" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          name="username"
+          type="text"
+          id="username"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          name="password"
+          type="password"
+          id="password"
+          class="form-control"
+          required
+        />
+      </div>
+      <button class="btn btn-success">Login</button>
+    </form>
+  </div>
+</div> -->
+
+<div class="container signup-form px-4 py-5">
+  <div class="card shadow card0">
+    <div class="d-flex flex-lg-row flex-column-reverse">
+      <div class="card card1">
+        <div class="row justify-content-center my-auto">
+          <div class="col-md-8 col-10 my-5">
+            <h3 class="mb-5 text-center heading">Log In to Your Adventure</h3>
+            <form
+              method="post"
+              action="/login"
+              class="needs-validation"
+              novalidate
+            >
+              <div class="form-group">
+                <label for="username" class="form-control-label text-muted"
+                  >Username</label
+                >
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Enter your username"
+                  class="form-control"
+                  required
+                />
+                <div class="valid-feedback">looks good!</div>
+              </div>
+              <div class="form-group">
+                <label for="Password" class="form-control-label text-muted"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter Your password"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="row justify-content-center my-3 px-3">
+                <h6 class="msg-info">
+                  Your next experience is just a log-in away.
+                </h6>
+                <button class="btn-block btn-color fw-bold">LogIn</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="bottom text-center mb-5">
+          <p class="sm-text mx-auto mb-3">
+            New to CosmicCove?<a href="/signup"
+              ><button class="btn btn-white mx-2 pl-2 fw-bold">
+                Create an Account
+              </button></a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="card card2">
+        <div class="my-auto mx-md-5 px-md-5 right">
+          <h3 class="text-white text-center mb-4 fs-1 fw-bold">
+            Welcome Back to Your Cosmic Adventure
+          </h3>
+          <p class="text-white fs-5 text-center fw-bold">
+            At CosmicCove, every trip is more than just a getaway—it’s an
+            opportunity to create lasting memories. By signing in, you can
+            rediscover stunning destinations, manage your bookings effortlessly,
+            and find your next extraordinary stay. Whether it’s a serene beach
+            retreat or a bustling city apartment, your perfect escape awaits.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

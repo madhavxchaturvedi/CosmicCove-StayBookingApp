@@ -1,0 +1,128 @@
+<% layout("/layouts/boilerplate") -%>
+<!-- 
+<div class="row">
+  <div class="col-6 offset-3 mt-3">
+    <h1>SignUp for CosmicCove</h1>
+    <form method="post" action="/signup" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          name="username"
+          type="text"
+          id="username"
+          class="form-control"
+          required
+        />
+        <div class="valid-feedback">Title looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          name="email"
+          type="email"
+          id="email"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          name="password"
+          type="password"
+          id="password"
+          class="form-control"
+          required
+        />
+      </div>
+      <button class="btn btn-success">SignUp</button>
+    </form>
+  </div>
+</div> -->
+
+<div class="container signup-form px-4 py-5">
+  <div class="card shadow card0">
+    <div class="d-flex flex-lg-row flex-column-reverse">
+      <div class="card card1">
+        <div class="row justify-content-center my-auto">
+          <div class="col-md-8 col-10 my-3">
+            <h3 class="mb-5 text-center heading">Join CosmicCove</h3>
+            <form
+              method="post"
+              action="/signup"
+              class="needs-validation"
+              novalidate
+            >
+              <div class="form-group">
+                <label for="username" class="form-control-label text-muted"
+                  >Username</label
+                >
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Enter your username"
+                  class="form-control"
+                  required
+                />
+                <div class="valid-feedback">looks good!</div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="form-control-label text-muted"
+                  >Email</label
+                >
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email address"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="Password" class="form-control-label text-muted"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Create a strong password"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="row justify-content-center my-3 px-3">
+                <h6 class="msg-info">Discover your next adventure.</h6>
+                <button class="btn-block btn-color fw-bold">Sign Up</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="bottom text-center mb-5">
+          <p class="sm-text mx-auto mb-3">
+            Already have an account?<a href="/login"
+              ><button class="btn btn-white mx-2 pl-2 fw-bold">
+                Sign In
+              </button></a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="card card2">
+        <div class="my-auto mx-md-5 px-md-5 right">
+          <h3 class="text-white text-center mb-4 fs-1 fw-bold">
+            Your Journey Begins at CosmicCove
+          </h3>
+          <p class="text-white fs-5 text-center fw-bold">
+            Explore more than just destinations—explore the stories, the people,
+            and the places that make every stay unforgettable. From rustic
+            retreats to urban getaways, CosmicCove has the perfect match for
+            your travel dreams. Sign in and start your adventure.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
