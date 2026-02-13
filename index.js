@@ -32,11 +32,17 @@ main()
     console.log("Connected with DB");
   })
   .catch((err) => {
-    console.log(err);
+    console.log("MongoDB Connection Error:", err.message);
   });
 
 async function main() {
-  await mongoose.connect(dbUrl);
+  await mongoose.connect(dbUrl, {
+    serverSelectionTimeoutMS: 30000,
+    socketTimeoutMS: 45000,
+    family: 4, // Use IPv4, skip trying IPv6
+    tls: true,
+    tlsAllowInvalidCertificates: true, // Temporary workaround for Node v24
+  });
 }
 
 app.use(favicon(path.join(__dirname, "/public", "images/favicon.ico")));
@@ -52,6 +58,13 @@ const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
     secret: process.env.SECRET,
+  mongoOptions: {
+    serverSelectionTimeoutMS: 30000,
+    socketTimeoutMS: 45000,
+    family: 4,
+    tls: true,
+    tlsAllowInvalidCertificates: true,
+  },
   },
   touchAfter: 24 * 3600,
 });

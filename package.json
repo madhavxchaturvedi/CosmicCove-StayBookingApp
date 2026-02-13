@@ -1,12 +1,13 @@
 {
   "engines": {
-    "node": "20.11.0"
+    "node": ">=20.11.0"
   },
   "name": "major_project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_OPTIONS='--tls-min-v1.0' node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -23,7 +24,8 @@
     "express-session": "^1.18.0",
     "joi": "^17.13.3",
     "method-override": "^3.0.0",
-    "mongoose": "^8.4.3",
+    "mongodb": "^6.9.0",
+    "mongoose": "^9.2.1",
     "multer": "1.4.4",
     "multer-gridfs-storage": "^5.0.2",
     "multer-storage-cloudinary": "^4.0.0",
